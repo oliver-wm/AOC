@@ -1037,41 +1037,45 @@ INPUT = """1
 -572"""
 
 
-def state_machine(input : list) -> int:
-	
-	start = 0
-	count = 0
-	while start < len(input):
-		# print(start)
-		val = input[start]
-		input[start] += 1
-		count += 1
-		start += val
+def state_machine(input: list) -> int:
 
-	return count
+    start = 0
+    count = 0
+    while start < len(input):
+        # print(start)
+        val = input[start]
+        input[start] += 1
+        count += 1
+        start += val
 
-def state_machine2(input : list) -> int:
-	
-	start = 0
-	count = 0
-	while start < len(input):
-		# print(start)
-		val = input[start]
-		if val >= 3:
-			input[start] -= 1
-		else:
-			input[start] += 1
-		count += 1
-		start += val
+    return count
 
-	return count
+
+def state_machine2(input: list) -> int:
+
+    start = 0
+    count = 0
+    while start < len(input):
+        # print(start)
+        val = input[start]
+        if val >= 3:
+            input[start] -= 1
+        else:
+            input[start] += 1
+        count += 1
+        start += val
+
+    return count
+
 
 assert state_machine([0, 3, 0, 1, -3]) == 5
 assert state_machine2([0, 3, 0, 1, -3]) == 10
 
+
 def to_list(str):
-	cells = str.split("\n")
-	return [int(cell) for cell in cells]
+    cells = str.split("\n")
+    return [int(cell) for cell in cells]
+
 
 print(state_machine(to_list(INPUT)))
 

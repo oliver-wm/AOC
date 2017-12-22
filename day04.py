@@ -511,26 +511,29 @@ maudjy okgjga uadjmy dzfrk omd
 azz ajdcqkd bcafn zaz dcjaqdk gylyzo
 xzvfbf fopmfxu mvftgr mfupoxf coyhof talcc vpkslo"""
 
-def to_lists(passphrases : str) -> list(list()):
-	return [[x for x in rows.split(" ")] for rows in passphrases.split("\n")]
+
+def to_lists(passphrases: str) -> list(list()):
+    return [[x for x in rows.split(" ")] for rows in passphrases.split("\n")]
+
 
 def valid(PASSPHRASES: str) -> int:
-	pp = to_lists(PASSPHRASES)
-	vc = 0
-	flag = True
-	check = {}
-	for phrase in pp:
-		for word in phrase:
-			if word in check:
-				flag = False
-				break
-			else:
-				check[word] = word
-		if flag == True:
-			vc += 1
-		else: flag = True
-		check.clear()
-	return vc
+    pp = to_lists(PASSPHRASES)
+    vc = 0
+    flag = True
+    check = {}
+    for phrase in pp:
+        for word in phrase:
+            if word in check:
+                flag = False
+                break
+            else:
+                check[word] = word
+        if flag == True:
+            vc += 1
+        else:
+            flag = True
+        check.clear()
+    return vc
 
 
 # assert valid("abcde fghij") == 1

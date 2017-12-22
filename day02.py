@@ -1,8 +1,5 @@
 
 
-
-
-
 INPUT = """1136 1129    184 452 788 1215    355 1109    224 1358    1278    176 1302    186 128  1148
 242 53  252 62  40  55  265 283 38  157 259 226 322 48  324 299
 2330    448 268 2703    1695    2010    3930    3923    179 3607    217 3632    1252    231 286  3689
@@ -39,14 +36,17 @@ INPUT2 = """1136    1129    184 452 788 1215    355 1109    224 1358    1278    
 
 from typing import List
 
+
 def to_rows(s: str) -> List[List[int]]:
     rows = s.split("\n")
     rows = [[int(cell) for cell in row.split()] for row in rows]
     return rows
 
+
 def checksum(ss: str) -> int:
     rows = to_rows(ss)
     return sum(max(row) - min(row) for row in rows)
+
 
 def corrupt_checksum(ss: str) -> int:
     rows = to_rows(ss)
@@ -61,9 +61,11 @@ def corrupt_checksum(ss: str) -> int:
 
     return sum
 
+
 def func():
     print(checksum(INPUT))
     print(corrupt_checksum(INPUT2))
+
 
 test_ss = """5 1 9 5
 7 5 3
